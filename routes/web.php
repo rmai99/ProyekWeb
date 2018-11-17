@@ -23,3 +23,7 @@ Route::get('/DataAnggota', function () {
 Route::get('/DataTransaksi', function () {
     return view('DataTransaksi');
 });
+Route::get('/edit_anggota', function () {
+    return view('edit_anggota');
+});
+
