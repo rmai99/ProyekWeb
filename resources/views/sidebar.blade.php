@@ -29,7 +29,8 @@
       <li class="active"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li><a href="DataAnggota"><i class="fa fa-link"></i> <span>Data Anggota</span></a></li>
       <li><a href="DataBuku"><i class="fa fa-link"></i> <span>Data Buku</span></a></li>
-      <li><a href="DataTransaksi"><i class="fa fa-link"></i> <span>Data Transaksi</span></a></li>
+      <li><a href="DataPeminjaman"><i class="fa fa-link"></i> <span>Data Peminjaman</span></a></li>
+       <li><a href="DataPengembalian"><i class="fa fa-link"></i> <span>Data Pengembalian</span></a></li>
       <li class="treeview">
         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
           <span class="pull-right-container">

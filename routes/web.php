@@ -20,8 +20,11 @@ Route::get('/DataBuku', function () {
 Route::get('/DataAnggota', function () {
     return view('DataAnggota');
 });
-Route::get('/DataTransaksi', function () {
-    return view('DataTransaksi');
+Route::get('/DataPengembalian', function () {
+    return view('DataPengembalian');
+});
+Route::get('/DataPeminjaman', function () {
+    return view('DataPeminjaman');
 });
 Route::get('/edit_anggota', function () {
     return view('edit_anggota');

@@ -6,7 +6,7 @@
             <div class="box-header">
               <i class="ion ion-clipboard"></i>
 
-              <h3 class="box-title">Transaksi</h3>
+              <h3 class="box-title">Data Peminjaman</h3>
 
               <div class="box-tools pull-right">
                 <ul class="pagination pagination-sm inline">
@@ -22,23 +22,23 @@
           <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>ISBN</th>
-                    <th>Judul Buku</th>
-                    <th>Penerbit</th>
-                    <th>Pengarang</th>
-                    <th>Tahun Terbit</th>
+                     <th>No</th>
+                    <th>Tanggal Pinjam</th>
+                    <th>Tanggal Kembali</th>
+                    <th>ID Buku</th>
+                    <th>ID Anggota</th>
+                 
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>3264</td>
-                        <td>ASD</td>
-                        <td>Gramedia</td>
-                        <td>Dewandaru</td>
-                        <td>2018</td>
+                        <td>12 Oktober 2018</td>
+                        <td>14 Oktober 2018</td>
+                        <td>8298</td>
+                        <td>12771</td>
+                       
                         <td>
                             <form action="" method="post">
                                 <a href="#" class=" btn btn-sm btn-primary">Edit</a>
