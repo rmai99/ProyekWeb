@@ -17,16 +17,11 @@ Route::get('/', function () {
 Route::get('/DataBuku', function () {
     return view('DataBuku');
 });
-Route::get('/DataAnggota', function () {
-    return view('DataAnggota');
-});
+Route::resource('DataAnggota','AnggotaController');
+Route::resource('edit_anggota','AnggotaController');
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
 });
 Route::get('/DataPeminjaman', function () {
     return view('DataPeminjaman');
 });
-Route::get('/edit_anggota', function () {
-    return view('edit_anggota');
-});
-

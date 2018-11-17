@@ -30,27 +30,31 @@
                     <th>Alamat</th>
                     <th>Jenis Kelamin</th>
                     <th>No Telepon</th>
-
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
+                @php $no = 1; @endphp
+                @foreach($data as $d)
                     <tr>
-                        <td>1</td>
-                        <td>Taylor Swift</td>
-                        <td>1333</td>
-                        <td>KKMK</td>
-                        <td>Pendidikan Dokter</td>
-                        <td>Nashville</td>
-                        <td>P</td>
-                        <td>08923676182</td>
-                        <td>
-                            <form action="" method="post">
-                                <a href="#" class=" btn btn-sm btn-primary">Edit</a>
-                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
-                            </form>
-                        </td>
+                      <td>{{ $no++ }}</td>
+                      <td>{{ $d->nama_anggota }}</td>
+                      <td>{{ $d->nim }}</td>
+                      <td>{{ $d->fakultas }}</td>
+                      <td>{{ $d->prodi }}</td>
+                      <td>{{ $d->alamat }}</td>
+                      <td>{{ $d->jk }}</td>
+                      <td>{{ $d->no_telp }}</td>
+                      <td>
+                        <form action="{{ route('DataAnggota.destroy', $d->id) }}" method="post">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <a href="{{ route('DataAnggota.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                              <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                          </form>
+                      </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="form-group">

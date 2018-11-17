@@ -9,13 +9,13 @@ class AnggotaController extends Controller
 {
     public function index()
     {
-       $data = ModelAnggota::all();
-        return view('anggota',compact('data'));
+      $data = ModelAnggota::all();
+      return view('DataAnggota',compact('data'));
     }
-	
+
     public function create()
     {
-        //
+        return view('DataAnggota');
     }
 
     /**
@@ -48,10 +48,11 @@ class AnggotaController extends Controller
      */
     public function edit($id)
 		{
-        $data = ModelAnggota:where('id',$id)->get();
-        return view('edit_anggota,compact('data')');
+        $data = ModelAnggota::where('id',$id)->get();
+        return view('edit_anggota',compact('data'));
+
     }
-    
+
   public function update(Request $request, $id){
         $data = ModelAnggota::where('id',$id)->first();
 		$data->id = $request->id;
@@ -63,7 +64,7 @@ class AnggotaController extends Controller
 		$data->jk = $request->jk;
 		$data->no_telp = $request->no_telp;
 		$data->save();
-		return redirect()->route('edit_anggota.index')->with('alert-success','Update Data Successfully!');  
+		return redirect()->route('anggota.index')->with('alert-success','Update Data Successfully!');
  }
 
     /**

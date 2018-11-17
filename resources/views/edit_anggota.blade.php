@@ -7,11 +7,11 @@
             <!-- Remove This Before You Start -->
             <h1>Edit Anggota</h1>
             <hr>
-            @foreach($data as $datas)
-            <form action="{{ route('anggota.update', $datas->id) }}" method="post">
+            @foreach($data as $data)
+            <form action="{{ route('DataAnggota.update', $datas->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
-		<div class="form-group">
+		            <div class="form-group">
                     <label for="nama_anggota">nama_anggota:</label>
                     <input type="email" class="form-control" id="nama_anggota" name="nama_anggota" value="{{ $datas->nama_anggota }}">
                 </div>
@@ -43,6 +43,7 @@
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>
                     <button type="reset" class="btn btn-md btn-danger">Cancel</button>
                 </div>
+              </form>
             @endforeach
         </div>
         <!-- /.content -->
