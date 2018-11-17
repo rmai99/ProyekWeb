@@ -32,19 +32,24 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php $no = 1; @endphp
+                @foreach($data as $d)
                     <tr>
-                        <td>1</td>
-                        <td>12 Oktober 2018</td>
-                        <td>14 Oktober 2018</td>
-                        <td>8298</td>
-                        <td>12771</td>
+                      <td>{{ $no++ }}</td>
+                      <td>{{ $d->tgl_pinjam }}</td>
+                      <td>{{ $d->tgl_kembali }}</td>
+                      <td>{{ $d->id_buku }}</td>
+                      <td>{{ $d->id_anggota }}</td>
+                
                        
                         <td>
-                            <form action="" method="post">
-                                <a href="#" class=" btn btn-sm btn-primary">Edit</a>
-                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
-                            </form>
-                        </td>
+                        <form action="{{ route('DataPeminjaman.destroy', $d->id) }}" method="post">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                              <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                          </form>
+                      </td>
                     </tr>
                 </tbody>
             </table>
