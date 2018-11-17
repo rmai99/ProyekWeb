@@ -8,7 +8,7 @@
             <h1>Edit Buku</h1>
             <hr>
             @foreach($data as $d)
-            <form action="{{ route('DataBuku.update', $data->id) }}" method="post">
+            <form action="{{ route('DataBuku.update', $d->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 		            <div class="form-group">
