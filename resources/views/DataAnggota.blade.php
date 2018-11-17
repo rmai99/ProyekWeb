@@ -23,22 +23,27 @@
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>ISBN</th>
-                    <th>Judul Buku</th>
-                    <th>Penerbit</th>
-                    <th>Pengarang</th>
-                    <th>Tahun Terbit</th>
+                    <th>Nama Anggota</th>
+                    <th>NIM</th>
+                    <th>Fakultas</th>
+                    <th>Program Studi</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>No Telepon</th>
+
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>3264</td>
-                        <td>ASD</td>
-                        <td>Gramedia</td>
-                        <td>Dewandaru</td>
-                        <td>2018</td>
+                        <td>Taylor Swift</td>
+                        <td>1333</td>
+                        <td>KKMK</td>
+                        <td>Pendidikan Dokter</td>
+                        <td>Nashville</td>
+                        <td>P</td>
+                        <td>08923676182</td>
                         <td>
                             <form action="" method="post">
                                 <a href="#" class=" btn btn-sm btn-primary">Edit</a>
