@@ -20,7 +20,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        return view('DataBuku');
     }
 
     /**
@@ -31,7 +31,15 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = new ModelAnggota();
+      $data->isbn = $request->isbn;
+      $data->judul_buku = $request->judul_buku;
+      $data->tahun_terbit = $request->tahun_terbit;
+      $data->pengarang = $request->pengarang;
+      $data->penerbit = $request->penerbit;
+      $data->satuan = $request->satuan;
+      $data->save();
+      return redirect()->route('DataBuku.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -53,7 +61,8 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
-        //
+      $data = ModelBuku::where('id',$id)->get();
+      return view('edit_buku',compact('data'));
     }
 
     /**
@@ -65,7 +74,15 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $data = ModelBuku::where('id',$id)->first();
+      $data->isbn = $request->isbn;
+      $data->judul_buku = $request->judul_buku;
+      $data->tahun_terbit = $request->tahun_terbit;
+      $data->pengarang = $request->pengarang;
+      $data->penerbit = $request->penerbit;
+      $data->satuan = $request->satuan;
+      $data->save();
+      return redirect()->route('DataBuku.index')->with('alert-success','Update Data Successfully!');
     }
 
     /**
@@ -76,6 +93,8 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $data = ModelBuku::where('id',$id)->first();
+      $data->delete();
+      return redirect()->route('DataBuku.index')->with('alert-success','Delete Data Successfully!');
     }
 }
