@@ -14,14 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/DataBuku', function () {
-    return view('DataBuku');
-});
 Route::resource('DataAnggota','AnggotaController');
+
 Route::resource('edit_anggota','AnggotaController');
+
 Route::get('/tambah_anggota', function () {
     return view('tambah_anggota');
 });
+
+Route::resource('DataBuku','BukuController');
+
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
 });

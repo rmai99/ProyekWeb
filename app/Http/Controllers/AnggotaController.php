@@ -26,7 +26,16 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = new ModelAnggota();
+    $data->nama_anggota = $request->nama;
+    $data->nim = $request->nim;
+    $data->fakultas = $request->fakultas;
+    $data->prodi = $request->prodi;
+    $data->alamat = $request->alamat;
+    $data->jk = $request->jk;
+    $data->no_telp = $request->no_telp;
+    $data->save();
+    return redirect()->route('DataAnggota.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**

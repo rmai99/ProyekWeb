@@ -6,7 +6,7 @@
             <div class="box-header">
               <i class="ion ion-clipboard"></i>
 
-              <h3 class="box-title">Daftar Buku</h3>
+              <h3 class="box-title">Daftar Anggota</h3>
 
               <div class="box-tools pull-right">
                 <ul class="pagination pagination-sm inline">
@@ -23,34 +23,39 @@
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>ISBN</th>
-                    <th>Judul Buku</th>
-                    <th>Penerbit</th>
-                    <th>Pengarang</th>
-                    <th>Tahun Terbit</th>
+                    <th>Nama Anggota</th>
+                    <th>NIM</th>
+                    <th>Fakultas</th>
+                    <th>Program Studi</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>No Telepon</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
+                @php $no = 1; @endphp
+                @foreach($data as $d)
                     <tr>
-                        <td>1</td>
-                        <td>3264</td>
-                        <td>ASD</td>
-                        <td>Gramedia</td>
-                        <td>Dewandaru</td>
-                        <td>2018</td>
-                        <td>
-                            <form action="" method="post">
-                                <a href="#" class=" btn btn-sm btn-primary">Edit</a>
-                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
-                            </form>
-                        </td>
+                      <td>{{ $no++ }}</td>
+                      <td>{{ $d->isbn }}</td>
+                      <td>{{ $d->judul_buku }}</td>
+                      <td>{{ $d->tahun_terbit }}</td>
+                      <td>{{ $d->pengarang }}</td>
+                      <td>{{ $d->penerbit }}</td>
+                      <td>{{ $d->satuan }}</td>
+                      <td>
+                        <form action="{{ route('DataBuku.destroy', $d->id) }}" method="post">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <a href="{{ route('DataBuku.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                              <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
+                          </form>
+                      </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
-            <div class="form-group">
-                <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-            </div>
 
 </section>
 @endsection
