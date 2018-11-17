@@ -56,8 +56,6 @@
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         </ol>
-
-
       </section>
 
       <!-- Main content -->
