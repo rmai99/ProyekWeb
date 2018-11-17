@@ -19,6 +19,9 @@ Route::get('/DataBuku', function () {
 });
 Route::resource('DataAnggota','AnggotaController');
 Route::resource('edit_anggota','AnggotaController');
+Route::get('/tambah_anggota', function () {
+    return view('tambah_anggota');
+});
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
 });

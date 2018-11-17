@@ -46,10 +46,10 @@
                       <td>{{ $d->jk }}</td>
                       <td>{{ $d->no_telp }}</td>
                       <td>
-                        <form action="{{ route('AnggotaController.destroy', $d->id) }}" method="post">
+                        <form action="{{ route('DataAnggota.destroy', $d->id) }}" method="post">
                               {{ csrf_field() }}
                               {{ method_field('DELETE') }}
-                              <a href="{{ route('AnggotaController.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                              <a href="{{ route('DataAnggota.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
                               <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
                           </form>
                       </td>
@@ -57,9 +57,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="form-group">
-                <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-            </div>
 
 </section>
 @endsection

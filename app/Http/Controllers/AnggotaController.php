@@ -55,7 +55,6 @@ class AnggotaController extends Controller
 
   public function update(Request $request, $id){
         $data = ModelAnggota::where('id',$id)->first();
-		$data->id = $request->id;
 		$data->nama_anggota = $request->nama_anggota;
 		$data->nim = $request->nim;
 		$data->fakultas = $request->fakultas;
@@ -64,7 +63,7 @@ class AnggotaController extends Controller
 		$data->jk = $request->jk;
 		$data->no_telp = $request->no_telp;
 		$data->save();
-		return redirect()->route('anggota.index')->with('alert-success','Update Data Successfully!');
+		return redirect()->route('DataAnggota.index')->with('alert-success','Update Data Successfully!');
  }
 
     /**
@@ -75,8 +74,8 @@ class AnggotaController extends Controller
      */
     public function destroy($id)
    {
-	$data = ModelAnggota::where('id',$id)->first();
-	$data->delete();
-	return redirect()->route('anggota.index')->with('alert-success','Delete Data Successfully!');
+	      $data = ModelAnggota::where('id',$id)->first();
+	      $data->delete();
+	      return redirect()->route('DataAnggota.index')->with('alert-success','Delete Data Successfully!');
 }
 }
