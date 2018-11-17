@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/welcome2', function () {
-    return view('welcome2');
+Route::get('/DataBuku', function () {
+    return view('DataBuku');
+});
+Route::get('/DataAnggota', function () {
+    return view('DataAnggota');
+});
+Route::get('/DataTransaksi', function () {
+    return view('DataTransaksi');
 });
