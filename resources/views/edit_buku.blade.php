@@ -16,7 +16,7 @@
                     <input type="number" class="form-control" id="isbn" name="isbn" value="{{ $d->isbn }}">
                 </div>
                 <div class="form-group">
-                    <label for="nim">Nama Anggota:</label>
+                    <label for="nim">Judul Buku:</label>
                     <input type="text" class="form-control" id="judul_buku" name="judul_buku" value="{{ $d->judul_buku }}">
                 </div>
                 <div class="form-group">

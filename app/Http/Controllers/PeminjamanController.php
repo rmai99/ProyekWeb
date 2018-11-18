@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ModelPeminjaman;
 
 class PeminjamanController extends Controller
 {
@@ -13,7 +14,8 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+      $data = ModelPeminjaman::all();
+      return view('DataPeminjaman',compact('data'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('DataAPeminjaman');
     }
 
     /**
@@ -79,6 +81,8 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $data = ModelPeminjaman::where('id',$id)->first();
+      $data->delete();
+      return redirect()->route('DataPeminjaman.index')->with('alert-success','Delete Data Successfully!');
     }
 }

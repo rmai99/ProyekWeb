@@ -27,7 +27,7 @@ class AnggotaController extends Controller
     public function store(Request $request)
     {
       $data = new ModelAnggota();
-      $data->nama_anggota = $request->nama;
+      $data->nama_anggota = $request->nama_anggota;
       $data->nim = $request->nim;
       $data->fakultas = $request->fakultas;
       $data->prodi = $request->prodi;

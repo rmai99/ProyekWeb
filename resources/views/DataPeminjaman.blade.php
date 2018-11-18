@@ -27,7 +27,6 @@
                     <th>Tanggal Kembali</th>
                     <th>ID Buku</th>
                     <th>ID Anggota</th>
-                 
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -40,8 +39,6 @@
                       <td>{{ $d->tgl_kembali }}</td>
                       <td>{{ $d->id_buku }}</td>
                       <td>{{ $d->id_anggota }}</td>
-                
-                       
                         <td>
                         <form action="{{ route('DataPeminjaman.destroy', $d->id) }}" method="post">
                               {{ csrf_field() }}
@@ -51,6 +48,7 @@
                           </form>
                       </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="form-group">

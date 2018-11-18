@@ -24,24 +24,57 @@
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">HEADER</li>
-      <!-- Optionally, you can add icons to the links -->
-      <li class="active"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-      <li><a href="DataAnggota"><i class="fa fa-link"></i> <span>Data Anggota</span></a></li>
-      <li><a href="DataBuku"><i class="fa fa-link"></i> <span>Data Buku</span></a></li>
-      <li><a href="DataPeminjaman"><i class="fa fa-link"></i> <span>Data Peminjaman</span></a></li>
-       <li><a href="DataPengembalian"><i class="fa fa-link"></i> <span>Data Pengembalian</span></a></li>
+      <li class="header">MAIN NAVIGATION</li>
+      <li class="active treeview">
+        <a href="/">
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+        <a href="#">
+          <i class="fa fa-files-o"></i>
+          <span>Anggota</span>
           <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="#">Link in level 2</a></li>
+          <li><a href="DataAnggota"><i class="fa fa-circle-o"></i> Data Anggota</a></li>
+          <li><a href="/tambah_anggota"><i class="fa fa-circle-o"></i> Tambah Anggota</a></li>
         </ul>
       </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-pie-chart"></i>
+          <span>Buku</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="DataBuku"><i class="fa fa-circle-o"></i> DataBuku</a></li>
+          <li><a href="/tambah_buku"><i class="fa fa-circle-o"></i> Tambah Buku</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-laptop"></i>
+          <span>Peminjaman</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="DataPeminjaman"><i class="fa fa-circle-o"></i> Data Peminjaman</a></li>
+          <li><a href="/tambah_peminjaman"><i class="fa fa-circle-o"></i> Tambah Peminjaman</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i> <span>Pengembalian</span>
+        </a>
+      </li>
+    </ul>
   </section>
   <!-- /.sidebar -->
 </aside>

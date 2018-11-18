@@ -28,7 +28,6 @@
                     <th>Tahun Terbit</th>
                     <th>Pengarang</th>
                     <th>Penerbit</th>
-                    <th>Jenis Kelamin</th>
                     <th>Satuan</th>
                     <th>Aksi</th>
                 </tr>

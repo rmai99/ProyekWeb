@@ -27,9 +27,8 @@ Route::resource('DataBuku','BukuController');
 Route::get('/tambah_buku', function () {
     return view('tambah_buku');
 });
+
+Route::resource('DataPeminjaman','PeminjamanController');
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
-});
-Route::get('/DataPeminjaman', function () {
-    return view('DataPeminjaman');
 });

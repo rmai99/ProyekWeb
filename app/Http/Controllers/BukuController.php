@@ -31,7 +31,7 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-      $data = new ModelAnggota();
+      $data = new ModelBuku();
       $data->isbn = $request->isbn;
       $data->judul_buku = $request->judul_buku;
       $data->tahun_terbit = $request->tahun_terbit;
