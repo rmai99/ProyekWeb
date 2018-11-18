@@ -24,6 +24,9 @@ Route::get('/tambah_anggota', function () {
 
 Route::resource('DataBuku','BukuController');
 
+Route::get('/tambah_buku', function () {
+    return view('tambah_buku');
+});
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
 });

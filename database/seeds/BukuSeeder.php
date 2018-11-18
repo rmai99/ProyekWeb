@@ -12,7 +12,7 @@ class BukuSeeder extends Seeder
     public function run()
     {
       $faker = Faker\Factory::create(); //import library faker
-        $limit = 5; //batasan berapa banyak data
+        $limit = 20; //batasan berapa banyak data
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('buku')->insert([

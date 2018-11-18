@@ -23,13 +23,13 @@
                 <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Anggota</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Program Studi</th>
-                    <th>Alamat</th>
+                    <th>ISBN</th>
+                    <th>Judul Buku</th>
+                    <th>Tahun Terbit</th>
+                    <th>Pengarang</th>
+                    <th>Penerbit</th>
                     <th>Jenis Kelamin</th>
-                    <th>No Telepon</th>
+                    <th>Satuan</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>

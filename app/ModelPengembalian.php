@@ -9,7 +9,7 @@ class ModelPengembalian extends Model
   protected $table = "pengembalian";
   public function peminjaman()
   {
-    return $this->belongsTo('App\ModelPengembalian', 'id_pinjam');
+    return $this->belongsTo('App\ModelPeminjaman', 'id_pinjam');
   }
   public function buku()
   {

@@ -11,17 +11,15 @@ class PeminjamanSeeder extends Seeder
      */
     public function run()
     {
-         $faker = Faker\Factory::create(); //import library faker
-        $limit = 5; //batasan berapa banyak data
+        $faker = Faker\Factory::create(); //import library faker
+        $limit = 20; //batasan berapa banyak data
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('peminjaman')->insert([
                 'tgl_pinjam'=>$faker->dateTime,
                 'tgl_kembali'=>$faker->dateTime,
-                'id_buku' =>$faker->id_buku::all()->random()->id_buku,
-                'id_anggota' =>$faker->randomDigitNotNull,
-               
-             
+                'id_buku' =>$faker->numberBetween($min = 1, $max = 20),
+                'id_anggota' => $faker->numberBetween($min = 1, $max = 20),
             ]);
         }
     }
