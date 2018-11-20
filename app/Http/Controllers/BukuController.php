@@ -11,7 +11,7 @@ class BukuController extends Controller
 {
     public function index()
     {
-      $buku = ModelBuku::all();
+      $buku = ModelBuku::paginate(10);
       $datas = ModelAnggota::all();
       $peminjaman = ModelPeminjaman::all();
       return view('DataBuku',compact('buku', 'datas', 'peminjaman'));
@@ -47,7 +47,7 @@ class BukuController extends Controller
       $data->penerbit = $request->penerbit;
       $data->satuan = $request->satuan;
       $data->save();
-      return redirect()->route('DataBuku.index')->with('alert-success','Berhasil Menambahkan Data!');
+      return redirect(compact('peminjaman'))->route('DataBuku.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -68,9 +68,11 @@ class BukuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    { 
-      $data = ModelBuku::where('id',$id)->get();
-      return view('edit_buku',compact('data'));
+    {
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::all();
+      $datas = ModelBuku::where('id',$id)->get();
+      return view('edit_buku',compact('datas','buku','peminjaman'));
     }
 
     /**

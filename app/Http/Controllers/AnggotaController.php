@@ -64,8 +64,10 @@ class AnggotaController extends Controller
      */
     public function edit($id)
 		{
-        $data = ModelAnggota::where('id',$id)->get();
-        return view('edit_anggota',compact('data'));
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::all();
+      $datas = ModelAnggota::where('id',$id)->get();
+      return view('edit_anggota',compact('datas','buku','peminjaman'));
 
     }
 

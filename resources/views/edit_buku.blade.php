@@ -7,7 +7,7 @@
             <!-- Remove This Before You Start -->
             <h1>Edit Buku</h1>
             <hr>
-            @foreach($data as $d)
+            @foreach($datas as $d)
             <form action="{{ route('DataBuku.update', $d->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}

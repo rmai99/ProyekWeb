@@ -14,6 +14,6 @@ class BaseController extends Controller
     $datas = ModelAnggota::all();
     $buku = ModelBuku::all();
     $peminjaman = ModelPeminjaman::all();
-      return view('base',compact('buku', 'datas', 'peminjaman'));
+    return view('base',compact('buku', 'datas', 'peminjaman'));
   }
 }

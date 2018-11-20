@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                 @php $no = 1; @endphp
-                @foreach($data as $d)
+                @foreach($datas as $d)
                     <tr>
                       <td>{{ $no++ }}</td>
                       <td>{{ $d->nama_anggota }}</td>

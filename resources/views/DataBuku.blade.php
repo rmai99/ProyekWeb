@@ -1,24 +1,20 @@
 @extends('base')
 @section('content')
 <section class="content">
-          <!-- TO DO List -->
-          <div class="box box-primary">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
+  <div class="box box-primary">
+    <div class="box-header">
+      <i class="ion ion-clipboard"></i>
 
-              <h3 class="box-title">Daftar Anggota</h3>
+      <h3 class="box-title">Data Buku</h3>
 
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      <div class="box-tools pull-right">
+        <ul class="pagination pagination-sm inline">
+          <a class="btn btn-primary" href="{{route('DataBuku.create')}}" role="button">Tambah</a>
+        </ul>
+      </div>
+    </div>
+  </div>
+
           <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -55,6 +51,6 @@
                     @endforeach
                 </tbody>
             </table>
-
+            {{ $buku->links() }}
 </section>
 @endsection
