@@ -11,12 +11,4 @@ class ModelPengembalian extends Model
   {
     return $this->belongsTo('App\ModelPeminjaman', 'id_pinjam');
   }
-  public function buku()
-  {
-    return $this->belongsTo('App\ModelBuku', 'id_buku');
-  }
-  public function anggota()
-  {
-    return $this->belongsTo('App\ModelAnggota', 'id_anggota');
-  }
 }

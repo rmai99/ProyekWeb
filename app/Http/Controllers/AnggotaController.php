@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelAnggota;
+use App\ModelBuku;
+use App\ModelPeminjaman;
 
 class AnggotaController extends Controller
 {
     public function index()
     {
-      $data = ModelAnggota::all();
-      return view('DataAnggota',compact('data'));
+      $datas = ModelAnggota::latest('created_at')->get();
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::all();
+      return view('DataAnggota',compact('datas','buku','peminjaman'));
     }
 
     public function create()
     {
-        return view('DataAnggota');
+        $datas = ModelAnggota::all();
+        $buku = ModelBuku::all();
+        $peminjaman = ModelPeminjaman::all();
+        return view('tambah_anggota ',compact('datas','buku','peminjaman'));
     }
 
     /**

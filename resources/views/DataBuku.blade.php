@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                 @php $no = 1; @endphp
-                @foreach($data as $d)
+                @foreach($buku as $d)
                     <tr>
                       <td>{{ $no++ }}</td>
                       <td>{{ $d->isbn }}</td>

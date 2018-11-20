@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelBuku;
+use App\ModelAnggota;
+use App\ModelPeminjaman;
 
 class BukuController extends Controller
 {
     public function index()
     {
-      $data = ModelBuku::all();
-      return view('DataBuku',compact('data'));
+      $buku = ModelBuku::all();
+      $datas = ModelAnggota::all();
+      $peminjaman = ModelPeminjaman::all();
+      return view('DataBuku',compact('buku', 'datas', 'peminjaman'));
+
     }
 
     /**
@@ -20,7 +25,10 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('DataBuku');
+      $datas = ModelAnggota::all();
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::all();
+      return view('tambah_buku ',compact('datas','buku','peminjaman'));
     }
 
     /**
@@ -60,7 +68,7 @@ class BukuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
       $data = ModelBuku::where('id',$id)->get();
       return view('edit_buku',compact('data'));
     }

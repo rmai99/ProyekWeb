@@ -15,5 +15,8 @@ class ModelPeminjaman extends Model
     {
     	return $this->belongsTo('App\ModelAnggota', 'id_anggota');
     }
-
+    public function pengembalian()
+    {
+       return $this->hasOne('App\ModelPengembalian');
+     }
 }

@@ -17,11 +17,7 @@ class PengembalianSeeder extends Seeder
       for ($i = 0; $i < $limit; $i++) {
           DB::table('pengembalian')->insert([
               'id_pinjam'=>$faker->numberBetween($min = 1, $max =20),
-              'id_buku' =>$faker->numberBetween($min = 1, $max = 20),
-              'id_anggota' => $faker->numberBetween($min = 1, $max = 20),
               'tgl_terima'=>$faker->dateTime,
-
-
           ]);
       }
     }

@@ -39,8 +39,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="DataAnggota"><i class="fa fa-circle-o"></i> Data Anggota</a></li>
-          <li><a href="/tambah_anggota"><i class="fa fa-circle-o"></i> Tambah Anggota</a></li>
+          <li><a href="{{route('DataAnggota.index')}}"><i class="fa fa-circle-o"></i> Data Anggota</a></li>
+          <li><a href="{{route('DataAnggota.create')}}"><i class="fa fa-circle-o"></i> Tambah Anggota</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -52,8 +52,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="DataBuku"><i class="fa fa-circle-o"></i> DataBuku</a></li>
-          <li><a href="/tambah_buku"><i class="fa fa-circle-o"></i> Tambah Buku</a></li>
+          <li><a href="{{route('DataBuku.index')}}"><i class="fa fa-circle-o"></i> DataBuku</a></li>
+          <li><a href="{{route('DataBuku.create')}}"><i class="fa fa-circle-o"></i> Tambah Buku</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -65,8 +65,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="DataPeminjaman"><i class="fa fa-circle-o"></i> Data Peminjaman</a></li>
-          <li><a href="/tambah_peminjaman"><i class="fa fa-circle-o"></i> Tambah Peminjaman</a></li>
+          <li><a href="{{route('DataPeminjaman.index')}}"><i class="fa fa-circle-o"></i> Data Peminjaman</a></li>
+          <li><a href="{{route('DataPeminjaman.create')}}"><i class="fa fa-circle-o"></i> Tambah Peminjaman</a></li>
         </ul>
       </li>
       <li class="treeview">

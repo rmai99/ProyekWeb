@@ -17,10 +17,6 @@ class CreateModelPengembaliansTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_pinjam');
             $table->foreign('id_pinjam')->references('id')->on('peminjaman')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedInteger('id_buku');
-            $table->foreign('id_buku')->references('id')->on('buku')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedInteger('id_anggota');
-            $table->foreign('id_anggota')->references('id')->on('anggota')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tgl_terima');
             $table->timestamps();
         });

@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'BaseController@index');
+
 Route::resource('DataAnggota','AnggotaController');
 
 Route::resource('edit_anggota','AnggotaController');
@@ -24,11 +26,12 @@ Route::get('/tambah_anggota', function () {
 
 Route::resource('DataBuku','BukuController');
 
+Route::resource('DataPeminjaman','PeminjamanController');
+
 Route::get('/tambah_buku', function () {
     return view('tambah_buku');
 });
 
-Route::resource('DataPeminjaman','PeminjamanController');
 Route::get('/DataPengembalian', function () {
     return view('DataPengembalian');
 });

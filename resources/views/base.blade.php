@@ -65,7 +65,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $peminjaman->count() }}</h3>
 
                 <p>Transaksi</p>
               </div>
@@ -80,7 +80,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-                <h3>53</h3>
+                <h3>{{ $buku->count() }}</h3>
 
                 <p>Buku</p>
               </div>
@@ -95,7 +95,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $datas->count() }}</h3>
 
                 <p>Anggota</p>
               </div>
@@ -109,7 +109,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>44</h3>
+                <h3>un</h3>
 
                 <p>Laporan</p>
               </div>

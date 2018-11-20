@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelPeminjaman;
+use App\ModelBuku;
+use App\ModelAnggota;
 
 class PeminjamanController extends Controller
 {
@@ -14,8 +16,10 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-      $data = ModelPeminjaman::all();
-      return view('DataPeminjaman',compact('data'));
+      $datas = ModelAnggota::all();
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
+      return view('DataPeminjaman',compact('peminjaman','buku','datas'));
     }
 
     /**
@@ -25,7 +29,10 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('DataAPeminjaman');
+      $datas = ModelAnggota::all();
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
+        return view('tambah_peminjaman',compact('peminjaman','buku','datas'));
     }
 
     /**
@@ -36,7 +43,13 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = new ModelPeminjaman();
+      $data->tgl_pinjam = $request->tgl_pinjam;
+      $data->tgl_kembali = $request->tgl_kembali;
+      $data->id_buku = $request->id_buku;
+      $data->id_anggota = $request->id_anggota;
+      $data->save();
+      return redirect()->route('DataPeminjaman.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**
@@ -47,7 +60,7 @@ class PeminjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = ModelAnggota::find($data->id_anggoota);
     }
 
     /**
@@ -58,7 +71,8 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+      $peminjaman = ModelAnggota::where('id',$id)->get();
+      return view('edit_peminjaman',compact('peminjaman'));
     }
 
     /**
