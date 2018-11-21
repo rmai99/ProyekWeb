@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ModelPeminjaman;
 use App\ModelBuku;
 use App\ModelAnggota;
+use App\ModelPengembalian;
 
 class PeminjamanController extends Controller
 {
@@ -71,8 +72,10 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-      $peminjaman = ModelAnggota::where('id',$id)->get();
-      return view('edit_peminjaman',compact('peminjaman'));
+      $buku = ModelBuku::all();
+      $peminjaman = ModelPeminjaman::where('id',$id)->get();
+      $datas = ModelAnggota::all();
+      return view('tambah_pengembalian',compact('datas','buku','peminjaman'));
     }
 
     /**
@@ -84,7 +87,13 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $data = new ModelPengembalian();
+      $data->tgl_pinjam = $request->tgl_pinjam;
+      $data->tgl_kembali = $request->tgl_kembali;
+      $data->id_buku = $request->id_buku;
+      $data->id_anggota = $request->id_anggota;
+      $data->save();
+      return redirect()->route('DataPengembalian.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**

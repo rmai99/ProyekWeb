@@ -40,7 +40,7 @@
                       <td>{{ $d->buku->judul_buku }}</td>
                       <td>{{ $d->anggota->nama_anggota }}</td>
                         <td>
-                        <button type="button" class="btn btn-success">Dipinjamkan</button>
+                          <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
                       </td>
                     </tr>
                     @endforeach

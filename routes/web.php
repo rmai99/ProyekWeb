@@ -28,10 +28,4 @@ Route::resource('DataBuku','BukuController');
 
 Route::resource('DataPeminjaman','PeminjamanController');
 
-Route::get('/tambah_buku', function () {
-    return view('tambah_buku');
-});
-
-Route::get('/DataPengembalian', function () {
-    return view('DataPengembalian');
-});
+Route::resource('DataPengembalian','PengembalianController');

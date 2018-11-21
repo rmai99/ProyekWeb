@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ModelPeminjaman;
+use App\ModelBuku;
+use App\ModelAnggota;
+use App\ModelPengembalian;
 
 class PengembalianController extends Controller
 {
@@ -13,7 +17,7 @@ class PengembalianController extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -56,7 +60,7 @@ class PengembalianController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

@@ -23,34 +23,30 @@
                 <thead>
                 <tr>
                      <th>No</th>
-                    <th>ID Peminjaman</th>
-                    <th>ID Buku</th>
-                    <th>ID Anggota</th>
-                    <th>Tanggal Pengembalian</th>
-                 
-                    <th>Aksi</th>
+                    <th>Nama Peminjam</th>
+                    <th>Nama Buku</th>
+                    <th>Tanggal Terima</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>12 Oktober 2018</td>
-                        <td>14 Oktober 2018</td>
-                        <td>8298</td>
-                        <td>12771</td>
-                       
-                        <td>
-                            <form action="" method="post">
-                                <a href="#" class=" btn btn-sm btn-primary">Edit</a>
-                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
-                            </form>
+                  @php $no = 1; @endphp
+                  @foreach($pengembalian as $d)
+                      <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $d->anggota->nama_anggota }}</td>
+                        <td>{{ $d->buku->judul_buku }}</td>
+                        <td>{{ $d->anggota->nama_anggota }}</td>
+                          <td>
+                            <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
                         </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="form-group">
-                <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-            </div>
+                      </tr>
+                      @endforeach
+                  </tbody>
+              </table>
+              <div class="form-group">
+                  <a class="btn btn-primary" href="{{route('DataPeminjaman.create')}}" role="button">Tambah</a>
+              </div>
 
-</section>
-@endsection
+  </section>
+  @endsection
