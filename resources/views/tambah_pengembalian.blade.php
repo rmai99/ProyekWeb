@@ -7,33 +7,29 @@
             <!-- Remove This Before You Start -->
             <h1>Pengembalian</h1>
             <hr>
-            @foreach($peminjaman as $d)
-            <form action="{{ route('DataPengembalian.index', $d->id) }}" method="post">
+            <form action="{{ route('DataPengembalian.store', $peminjaman->id) }}" method="post">
                 {{ csrf_field() }}
-                {{ method_field('PUT') }}
                 <div class="form-group">
                     <label for="nim">Tanggal Pinjam:</label>
-                    <input type="text" class="form-control" id="judul_buku" name="judul_buku" value="{{ $d->tgl_kembali }}">
+                    <input type="date" class="form-control" id="judul_buku" name="judul_buku" value="{{ $peminjaman->tgl_kembali }}">
                 </div>
                 <div class="form-group">
                     <label for="fakultas">Judul Buku:</label>
-                    <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit" value="{{ $d->buku->judul_buku }}">
+                    <input type="text" class="form-control" id="tahun_terbit" name="tahun_terbit" value="{{ $peminjaman->buku->judul_buku }}">
                 </div>
 				        <div class="form-group">
                     <label for="prodi">Nama Anggota:</label>
-                    <input type="text" class="form-control" id="pengarang" name="pengarang" value="{{ $d->anggota->nama_anggota }}">
+                    <input type="text" class="form-control" id="pengarang" name="pengarang" value="{{ $peminjaman->anggota->nama_anggota }}">
                 </div>
                 <div class="form-group">
                     <label for="prodi">Tanggal Terima:</label>
-                    <input type="text" class="form-control" id="pengarang" name="pengarang" value="">
+                    <input type="date" class="form-control" id="pengarang" name="tgl_terima" value="">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+                    <a class="btn btn-danger" href="{{route('DataPeminjaman.index')}}" role="button">Cancel</a>
                 </div>
-
               </form>
-            @endforeach
         </div>
         <!-- /.content -->
     </section>

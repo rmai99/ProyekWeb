@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ModelPeminjaman;
 use App\ModelBuku;
 use App\ModelAnggota;
+use App\ModelPengembalian;
 
 class BaseController extends Controller
 {
@@ -14,6 +15,7 @@ class BaseController extends Controller
     $datas = ModelAnggota::all();
     $buku = ModelBuku::all();
     $peminjaman = ModelPeminjaman::all();
-    return view('base',compact('buku', 'datas', 'peminjaman'));
+    $pengembalian = ModelPengembalian::all();
+    return view('welcome',compact('buku', 'datas', 'peminjaman','pengembalian'));
   }
 }

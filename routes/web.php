@@ -11,14 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', 'BaseController@index');
+Route::get('/', 'BaseController@index')->name('dashboard.index');
 
 Route::resource('DataAnggota','AnggotaController');
-
-Route::resource('edit_anggota','AnggotaController');
 
 Route::get('/tambah_anggota', function () {
     return view('tambah_anggota');
@@ -28,4 +23,5 @@ Route::resource('DataBuku','BukuController');
 
 Route::resource('DataPeminjaman','PeminjamanController');
 
-Route::resource('DataPengembalian','PengembalianController');
+Route::post('DataPengembalian/store/{id}', 'PengembalianController@store')->name('DataPengembalian.store');
+Route::resource('DataPengembalian','PengembalianController')->except('store');

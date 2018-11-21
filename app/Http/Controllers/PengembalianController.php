@@ -17,7 +17,8 @@ class PengembalianController extends Controller
      */
     public function index()
     {
-      
+      $pengembalian = ModelPengembalian::latest('created_at')->with('peminjaman')->get();
+      return view('DataPengembalian',compact('pengembalian'));
     }
 
     /**
@@ -27,7 +28,7 @@ class PengembalianController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,9 +37,13 @@ class PengembalianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+      $data = new ModelPengembalian();
+      $data->id_pinjam = $id;
+      $data->tgl_terima = $request->tgl_terima;
+      $data->save();
+      return redirect()->route('DataPengembalian.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
     /**

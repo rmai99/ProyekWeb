@@ -10,16 +10,12 @@
 
               <div class="box-tools pull-right">
                 <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
+                  <a class="btn btn-primary" href="{{route('DataPeminjaman.create')}}" role="button">Tambah</a>
                 </ul>
               </div>
             </div>
           </div>
-          <table class="table table-bordered">
+          <table id="example2" class="table table-hover table-bordered">
                 <thead>
                 <tr>
                      <th>No</th>
@@ -40,15 +36,12 @@
                       <td>{{ $d->buku->judul_buku }}</td>
                       <td>{{ $d->anggota->nama_anggota }}</td>
                         <td>
-                          <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                          <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Pinjam</a>
                       </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            <div class="form-group">
-                <a class="btn btn-primary" href="{{route('DataPeminjaman.create')}}" role="button">Tambah</a>
-            </div>
-
 </section>
+
 @endsection

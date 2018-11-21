@@ -39,7 +39,7 @@
              </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+                    <a class="btn btn-danger" href="{{route('DataAnggota.index')}}" role="button">Cancel</a>
                 </div>
             </form>
         </div>

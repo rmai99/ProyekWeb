@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelPeminjaman;
-use App\ModelBuku;
-use App\ModelAnggota;
 use App\ModelPengembalian;
 
 class PeminjamanController extends Controller
@@ -17,8 +15,6 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-      $datas = ModelAnggota::all();
-      $buku = ModelBuku::all();
       $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
       return view('DataPeminjaman',compact('peminjaman','buku','datas'));
     }
@@ -30,8 +26,6 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-      $datas = ModelAnggota::all();
-      $buku = ModelBuku::all();
       $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
         return view('tambah_peminjaman',compact('peminjaman','buku','datas'));
     }
@@ -54,7 +48,7 @@ class PeminjamanController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specif ied resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -72,10 +66,16 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-      $buku = ModelBuku::all();
-      $peminjaman = ModelPeminjaman::where('id',$id)->get();
-      $datas = ModelAnggota::all();
-      return view('tambah_pengembalian',compact('datas','buku','peminjaman'));
+      $peminjaman = ModelPeminjaman::where('id',$id)->first();
+      return view('tambah_pengembalian',compact('peminjaman'));
+    }
+
+    public function pengembalian($request, $id)
+    {
+      $data = new ModelPengembalian();
+      $data->id_pinjam = $id;
+      $data->tgl_terima = $request->tgl_terima;
+      $data->save();
     }
 
     /**
@@ -87,13 +87,15 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $data = new ModelPengembalian();
+      $data = ModelPeminjaman::where('id',$id)->first();
       $data->tgl_pinjam = $request->tgl_pinjam;
       $data->tgl_kembali = $request->tgl_kembali;
       $data->id_buku = $request->id_buku;
       $data->id_anggota = $request->id_anggota;
       $data->save();
-      return redirect()->route('DataPengembalian.index')->with('alert-success','Berhasil Menambahkan Data!');
+      $pinjam_id = $data->id;
+      $this->pengembalian($request, $pinjam_id);
+      return redirect()->route('DataPengembalian.index');
     }
 
     /**
