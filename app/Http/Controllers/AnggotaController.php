@@ -12,25 +12,15 @@ class AnggotaController extends Controller
     public function index()
     {
       $datas = ModelAnggota::latest('created_at')->get();
-      $buku = ModelBuku::all();
-      $peminjaman = ModelPeminjaman::all();
-      return view('DataAnggota',compact('datas','buku','peminjaman'));
+      return view('DataAnggota',compact('datas'));
     }
 
     public function create()
     {
         $datas = ModelAnggota::all();
-        $buku = ModelBuku::all();
-        $peminjaman = ModelPeminjaman::all();
-        return view('tambah_anggota ',compact('datas','buku','peminjaman'));
+        return view('tambah_anggota ',compact('datas'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       $data = new ModelAnggota();
@@ -64,10 +54,8 @@ class AnggotaController extends Controller
      */
     public function edit($id)
 		{
-      $buku = ModelBuku::all();
-      $peminjaman = ModelPeminjaman::all();
       $datas = ModelAnggota::where('id',$id)->get();
-      return view('edit_anggota',compact('datas','buku','peminjaman'));
+      return view('edit_anggota',compact('datas'));
 
     }
 

@@ -70,7 +70,7 @@
           </a>
            <ul class="treeview-menu">
             <li><a href="{{route('DataPengembalian.index')}}"><i class="fa fa-circle-o"></i> Data Pengembalian</a></li>
-            <li><a href="{{route('DataPengembalian.create')}}"><i class="fa fa-circle-o"></i> Tambah Pengembalian</a></li>
+            
           </ul>
         </li>
     </ul>

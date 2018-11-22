@@ -5,37 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ModelPeminjaman;
 use App\ModelPengembalian;
+use App\ModelBuku;
+use App\ModelAnggota;
 
 class PeminjamanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
       $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
-      return view('DataPeminjaman',compact('peminjaman','buku','datas'));
+      return view('DataPeminjaman',compact('peminjaman'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-      $peminjaman = ModelPeminjaman::latest('created_at')->with('buku','anggota')->get();
-        return view('tambah_peminjaman',compact('peminjaman','buku','datas'));
+        $buku= ModelBuku::select('id','judul_buku')->get();
+        $anggota= ModelAnggota::select('id','nama_anggota')->get();
+        return view('tambah_peminjaman',compact('buku', 'anggota'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       $data = new ModelPeminjaman();
@@ -44,26 +32,15 @@ class PeminjamanController extends Controller
       $data->id_buku = $request->id_buku;
       $data->id_anggota = $request->id_anggota;
       $data->save();
+     
       return redirect()->route('DataPeminjaman.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
-    /**
-     * Display the specif ied resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $user = ModelAnggota::find($data->id_anggoota);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
       $peminjaman = ModelPeminjaman::where('id',$id)->first();
@@ -78,13 +55,6 @@ class PeminjamanController extends Controller
       $data->save();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
       $data = ModelPeminjaman::where('id',$id)->first();
@@ -98,12 +68,6 @@ class PeminjamanController extends Controller
       return redirect()->route('DataPengembalian.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
       $data = ModelPeminjaman::where('id',$id)->first();

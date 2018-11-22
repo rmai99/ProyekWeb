@@ -18,12 +18,20 @@
                     <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali">
                 </div>
                 <div class="form-group">
-                    <label for="nama">ID Buku  :</label>
-                    <input type="integer" class="form-control" id="id_buku" name="id_buku">
+                    <label for="nama">Judul Buku</label>
+                    <select class="form-control" name="id_buku">
+                        @foreach($buku as $b)
+                         <option value="{{ $b->id}}">{{ $b->judul_buku}}</option>
+                        @endforeach
+                    </select
                 </div>
                 <div class="form-group">
-                    <label for="nama">ID Anggota  :</label>
-                    <input type="integer" class="form-control" id="id_anggota" name="id_anggota">
+                    <label for="nama">Nama Anggota</label>
+                    <select class="form-control" name="id_anggota">
+                    @foreach($anggota as $a)
+                         <option value="{{ $a->id}}">{{ $a->nama_anggota}}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>

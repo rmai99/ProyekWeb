@@ -8,7 +8,7 @@
         <div class="inner">
           <h3>{{ $peminjaman->count() }}</h3>
 
-          <p>Transaksi</p>
+          <p>Peminjaman</p>
         </div>
         <div class="icon">
           <i class="ion ion-bag"></i>
@@ -52,7 +52,7 @@
         <div class="inner">
           <h3>{{ $pengembalian->count() }}</h3>
 
-          <p>Laporan</p>
+          <p>Pengembalian</p>
         </div>
         <div class="icon">
           <i class="ion ion-pie-graph"></i>

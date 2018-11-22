@@ -23,7 +23,7 @@
                     <th>Tanggal Kembali</th>
                     <th>Judul Buku</th>
                     <th>Nama Anggota</th>
-                    <th>Aksi</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,14 @@
                       <td>{{ $d->buku->judul_buku }}</td>
                       <td>{{ $d->anggota->nama_anggota }}</td>
                         <td>
-                          <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary">Pinjam</a>
+                          <script>
+          function show()
+          {
+          document.getElementById("sub").value= "sub2";
+            return true;
+          }
+          </script>
+                          <a href="{{ route('DataPeminjaman.edit',$d->id) }}" class=" btn btn-sm btn-primary" onclick="show(this)">Pinjam</a>
                       </td>
                     </tr>
                     @endforeach

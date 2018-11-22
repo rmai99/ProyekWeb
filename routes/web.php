@@ -23,5 +23,8 @@ Route::resource('DataBuku','BukuController');
 
 Route::resource('DataPeminjaman','PeminjamanController');
 
+Route::resource('DataPengembalian','PengembalianController');
+
+
 Route::post('DataPengembalian/store/{id}', 'PengembalianController@store')->name('DataPengembalian.store');
 Route::resource('DataPengembalian','PengembalianController')->except('store');

@@ -43,6 +43,7 @@ class PengembalianController extends Controller
       $data->id_pinjam = $id;
       $data->tgl_terima = $request->tgl_terima;
       $data->save();
+
       return redirect()->route('DataPengembalian.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
 
@@ -88,6 +89,8 @@ class PengembalianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ModelPengembalian::where('id',$id)->first();
+      $data->delete();
+      return redirect()->route('DataPengembalian.index')->with('alert-success','Delete Data Successfully!');
     }
 }

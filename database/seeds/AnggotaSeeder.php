@@ -7,19 +7,18 @@ class AnggotaSeeder extends Seeder
 
     public function run()
     {
-      $faker = Faker\Factory::create(); //import library faker
-        $limit = 20; //batasan berapa banyak data
-
-        for ($i = 0; $i < $limit; $i++) {
-            DB::table('anggota')->insert([
-                'nama_anggota'=>$faker->name,
-                'nim' => $faker->name,
-                'Fakultas' => $faker->name,
-                'Prodi' => $faker->name,
-                'alamat' => $faker->address,
-                'jk'=>$faker->name,
-                'no_telp'=>$faker->phoneNumber,
-            ]);
+        DB::table('anggota')->insert([
+       'id'=>'30',
+               'nama_anggota'=>'Dzakwan',
+               'nim' =>'17/415511/SV/56721',
+               'fakultas' =>'KKMK ',
+               'prodi' => 'Pendidikan Dokter',
+               'alamat' => 'Kediri',
+               'jk' => 'L',
+               'no_telp' => '089613954111',
+       'created_at' => date("Y-m-d H:i:s"),
+       'updated_at' => date("Y-m-d H:i:s"),
+           ]);
+     
         }
     }
-}
